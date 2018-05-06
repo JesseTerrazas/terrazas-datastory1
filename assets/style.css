@@ -2,35 +2,32 @@
   style.CSS :
 
   index
-  - Imports & general styles
-
-    + Page Background
-    + general components
-    + header
-
-  - typography
-  - Mobile-Tablet CSS
-  - Tablet to Desktop CSS
+  + Fonts
+  + General
+  + Typography
+  + Grid
+  + Header
+  + Sections
 
 
 
 
 */
 
+/* ===================
+   Import fonts
+   =================== */
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
+/* ===================
+   General styles
+   =================== */
 
 html {
 
   background: linear-gradient(to bottom right, #577399, #BDD5EA);
   font-size: 20px;
-}
-
-#intro {
-
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
-
 }
 
 body {
@@ -39,10 +36,12 @@ body {
   margin-right: 50px;
   margin-bottom: 30px;
 }
+
 div.section {
 
   margin-bottom: 100px;
 }
+
 img {
 
   width: 100%;
@@ -51,6 +50,7 @@ img {
   max-height: 400px;
 
 }
+
 p {
   text-align: left;
   margin-left: 15px;
@@ -65,6 +65,15 @@ h2 {
   text-align: center;
 
 }
+
+#intro {
+
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+}
+
 iframe {
 
   justify-content: center;
@@ -72,6 +81,10 @@ iframe {
   min-height: 400px;
   max-height: 500px;
 }
+
+/* ===================
+   Typography scheme
+   =================== */
 
 h1, h2 {
 
@@ -83,13 +96,14 @@ p {
   font-family: 'Open Sans', sans-serif;
 }
 
-header {
-  border-bottom: 5px solid black;
-  border-color: #5B5162;
-}
+/* ===================
+   Grid styles
+   =================== */
 
+/* This section is for mobile to where I found the
+   website to be unreadable.
+   Queries if it is a screen and if less than 1000px wide. */
 @media screen and (max-width: 1000px) {
-
 
   div.image {
 
@@ -97,20 +111,16 @@ header {
     grid-template-columns: 1fr;
 
   }
+
   div.section {
 
     display: grid;
     grid-template-columns: 1fr;
   }
-  div p {
+}
 
-    margin-top: 20px;
-  }
-
-
-
-} /* END OF MOBILE TO IPAD CSS */
-
+/* This section is for a monitor.
+   Queries if it is a screen and if greater 1000px wide. */
 @media screen and (min-width: 1001px) {
 
   div.section {
@@ -120,12 +130,49 @@ header {
 
   }
 
+  /* alternating sides where image is placed */
   #dataCollect, #explainedVid {
 
     grid-template-columns: 1fr 60%;
 
   }
 
+  #dataViz {
+
+    grid-template-columns: 60% 1fr;
+  }
+
+
+}
+
+
+/* ===================
+  Header styles
+  =================== */
+
+header {
+  border-bottom: 5px solid black;
+  border-color: #5B5162;
+}
+
+/* ===================
+   Section styles
+   =================== */
+
+@media screen and (max-width: 1000px) {
+
+  div p {
+
+    margin-top: 20px;
+  }
+
+
+}
+
+@media screen and (min-width: 1001px) {
+
+
+  /* first and last sections */
   #dataCollect h2, #explainedVid h2 {
 
     grid-column: 1 / 2;
@@ -142,6 +189,7 @@ header {
 
 
   }
+
   #dataCollect div.image, #explainedVid div.image {
 
     grid-column: 1 / 2;
@@ -150,10 +198,11 @@ header {
 
   }
 
+  /* middle section between the above sections */
+  #dataViz h2 {
 
-  #dataViz {
-
-    grid-template-columns: 60% 1fr;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
   }
 
   #dataViz div.image {
@@ -163,18 +212,8 @@ header {
 
   }
 
-  #dataViz p {
-
-
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-
-  }
-
-  #dataViz h2 {
-
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-  }
-
 }
+
+/* ===================
+  Footer styles
+  =================== */
