@@ -28,7 +28,7 @@
 html {
 
   background: linear-gradient(to bottom right, #577399, #BDD5EA);
-  font-size: 20px;
+
 }
 
 body {
@@ -93,7 +93,11 @@ iframe {
 /* ===================
    Typography scheme
    =================== */
+   
+html {
 
+  font-size: 15px;
+}
 h1, h2, li {
 
   font-family: 'Roboto', sans-serif;
